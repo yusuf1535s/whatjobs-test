@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Protect sensitive database files from direct browser access
+<FilesMatch "\.(sql|sqlite|sqlite3|log|env)$">
+    Require all denied
+</FilesMatch>
+
+# Allow static assets and existing files/folders
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Clean URL fallback (e.g. /jobs -> /jobs.php)
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
