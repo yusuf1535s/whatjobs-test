@@ -1,0 +1,7 @@
+.git
+.gitignore
+run.bat
+run.ps1
+*.sqlite-journal
+*.log
+

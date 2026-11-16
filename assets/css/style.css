@@ -1,0 +1,1004 @@
+/* ============================================================
+   WHATJOBS.COM - GLOBAL DESIGN SYSTEM & STYLESHEET
+   Pure Vanilla CSS3 (No Bootstrap, No Tailwind)
+   Colors: Black (#181818), White (#FFFFFF), Red (#E64545), Green (#00875a)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+:root {
+  --primary-red: #E64545;
+  --primary-red-hover: #c93434;
+  --primary-red-light: #fef2f2;
+  --header-bg: #181818;
+  --header-text: #ffffff;
+  --footer-bg: #141414;
+  --footer-border: #262626;
+  --btn-green: #00875a;
+  --btn-green-hover: #006644;
+  --bg-page: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #666666;
+  --text-light: #8c8c8c;
+  --border-color: #e5e7eb;
+  --border-light: #f0f0f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --max-width: 1240px;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-page);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
+/* Material Icons Integration */
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ============================================================
+   GLOBAL NAVIGATION / HEADER (WhatJobs Signature Black Bar)
+   ============================================================ */
+.site-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 20px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand-logo {
+  height: 38px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo img,
+.brand-logo svg {
+  height: 34px;
+  width: auto;
+  max-height: 100%;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.main-nav a {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 6px 4px;
+  position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #ffffff;
+}
+
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary-red);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-red {
+  background-color: var(--primary-red);
+  color: #ffffff;
+}
+.btn-red:hover {
+  background-color: var(--primary-red-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 69, 69, 0.3);
+}
+
+.btn-green {
+  background-color: var(--btn-green);
+  color: #ffffff;
+}
+.btn-green:hover {
+  background-color: var(--btn-green-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+.btn-signin {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 6px 12px;
+}
+.btn-signin:hover {
+  color: var(--primary-red);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* User dropdown button */
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #282828;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.user-menu-btn:hover {
+  background: #333333;
+}
+
+/* ============================================================
+   HERO SEARCH SECTION (WhatJobs Signature Pill Search Bar)
+   ============================================================ */
+.hero-section {
+  background-color: #ffffff;
+  padding: 48px 0 36px 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.search-bar-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.search-pill-form {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-pill);
+  padding: 6px 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-pill-form:focus-within {
+  border-color: var(--text-dark);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.search-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  position: relative;
+}
+
+.search-field .material-symbols-rounded {
+  color: #888888;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  width: 100%;
+  font-size: 0.98rem;
+  color: var(--text-dark);
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #8e8e8e;
+  font-weight: 400;
+}
+
+.field-divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e2e8f0;
+  flex-shrink: 0;
+}
+
+.remote-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.remote-toggle-wrapper label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+/* Switch toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.2s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-red);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.search-btn-submit {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 13px 32px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.search-btn-submit:hover {
+  background-color: var(--primary-red-hover);
+  transform: scale(1.02);
+}
+
+/* Popular Searches Chips */
+.popular-searches {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.popular-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.search-chip {
+  background-color: #f1f3f5;
+  color: #374151;
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.search-chip:hover {
+  background-color: #e5e7eb;
+  color: var(--text-dark);
+}
+
+/* ============================================================
+   PROMOTIONAL / FEATURE CARDS
+   ============================================================ */
+.promo-section {
+  padding: 44px 0;
+  background: #ffffff;
+}
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.promo-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #d1d5db;
+}
+
+.promo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.promo-card:nth-child(1) .promo-icon {
+  background: #e6f4ea;
+  color: #00875a;
+}
+.promo-card:nth-child(2) .promo-icon {
+  background: #fef2f2;
+  color: var(--primary-red);
+}
+.promo-card:nth-child(3) .promo-icon {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.promo-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.promo-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+
+.promo-action {
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dark);
+}
+.promo-action:hover {
+  color: var(--primary-red);
+}
+
+/* ============================================================
+   SECTION HEADINGS & GRIDS
+   ============================================================ */
+.section-wrapper {
+  padding: 48px 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.view-all-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--primary-red);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   JOB LISTING CARDS (Signature WhatJobs Card Layout)
+   ============================================================ */
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.job-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  position: relative;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.job-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.35;
+}
+
+.job-title a:hover {
+  color: var(--primary-red);
+}
+
+.company-logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.company-logo-box img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.job-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.88rem;
+  color: #4b5563;
+}
+
+.meta-item .material-symbols-rounded {
+  font-size: 18px;
+  color: #8c8c8c;
+}
+
+.company-name-link {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.company-name-link:hover {
+  color: var(--primary-red);
+}
+
+.salary-tag {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.salary-tag.ai-est {
+  background-color: #fdf2f8;
+  color: #be185d;
+}
+
+.badge-remote {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.badge-featured {
+  background-color: #fef3c7;
+  color: #b45309;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.job-snippet {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.job-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+.posted-time {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-save-job {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid var(--border-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-save-job:hover,
+.btn-save-job.saved {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+  background-color: var(--primary-red-light);
+}
+
+/* ============================================================
+   JOB CATEGORIES GRID
+   ============================================================ */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.category-card:hover {
+  border-color: var(--primary-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: #f3f4f6;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.category-card:hover .category-icon-box {
+  background-color: var(--primary-red);
+  color: #ffffff;
+}
+
+.category-info h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.category-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   POPULAR LOCATIONS SECTION
+   ============================================================ */
+.location-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.location-chip {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all var(--transition-fast);
+}
+
+.location-chip:hover {
+  border-color: var(--primary-red);
+  color: var(--primary-red);
+  background-color: #fffafb;
+}
+
+/* ============================================================
+   GLOBAL FOOTER (WhatJobs Signature Multi-Column Dark Footer)
+   ============================================================ */
+.site-footer {
+  background-color: var(--footer-bg);
+  color: #a0a0a0;
+  padding: 60px 0 24px 0;
+  margin-top: auto;
+  border-top: 1px solid var(--footer-border);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 48px;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  color: #8c8c8c;
+  line-height: 1.6;
+  margin-top: 14px;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #a0a0a0;
+  font-size: 0.88rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--footer-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.84rem;
+  color: #737373;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-links a:hover {
+  color: #ffffff;
+}
+
+/* ============================================================
+   FLASH MESSAGES & ALERTS
+   ============================================================ */
+.flash-message {
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.flash-success {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #b7e1cd;
+}
+
+.flash-error {
+  background-color: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #f5c2c7;
+}
+
+.flash-info {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border: 1px solid #c2e7ff;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ============================================================ */
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+  .nav-actions .btn-green,
+  .nav-actions .btn-outline-white {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .search-pill-form {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    gap: 12px;
+  }
+  .field-divider {
+    display: none;
+  }
+  .search-field {
+    width: 100%;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 0;
+  }
+  .remote-toggle-wrapper {
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  .search-btn-submit {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
