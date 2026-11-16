@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$pageTitle = "Administrator Sign In | WhatJobs";
+$pageTitle = "Demo Administrator Sign In | WhatJobs Clone";
 $flash = get_flash();
 ?>
 <!DOCTYPE html>
@@ -56,10 +56,16 @@ $flash = get_flash();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <link rel="stylesheet" href="<?= url('assets/css/style.css') ?>">
 </head>
-<body style="background: #141414; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;">
+<body style="background: #141414; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+
+<!-- Disclaimer -->
+<div style="max-width: 440px; width: 100%; margin-bottom: 20px; background: #fff3cd; color: #664d03; border: 1px solid #ffe69c; font-size: 12px; font-weight: 600; text-align: center; padding: 8px 12px; border-radius: 6px;">
+    ⚠️ PORTFOLIO DEMO ONLY: Not affiliated with WhatJobs.com. Do not enter real credentials.
+</div>
 
 <div style="width: 100%; max-width: 440px;">
     
@@ -69,7 +75,7 @@ $flash = get_flash();
             <img src="<?= url('assets/images/logo.svg') ?>" alt="WhatJobs" width="200" height="38" style="height: 38px; width: auto; display: block; margin: 0 auto;">
         </a>
         <div style="color: #888; font-size: 0.82rem; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase;">
-            Employer &amp; Administrative Portal
+            Demo Administrative Console
         </div>
     </div>
 

@@ -8,7 +8,7 @@ require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/csrf.php';
 
-$pageTitle = $pageTitle ?? 'What Jobs Are Near Me? | USA Local Job Search | WhatJobs';
+$pageTitle = $pageTitle ?? 'WhatJobs Demo | Developer Portfolio Showcase';
 $currentPage = basename($_SERVER['PHP_SELF']);
 $user = current_user();
 $admin = current_admin();
@@ -19,8 +19,9 @@ $flash = get_flash();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="csrf-token" content="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
-    <meta name="description" content="WhatJobs is the leading local job search portal. Find thousands of vacancies from top employers across technology, healthcare, finance, and more.">
+    <meta name="description" content="Educational portfolio demonstration project replicating a modern job search interface. Not affiliated with or endorsed by WhatJobs.">
     <title><?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?></title>
     
     <!-- Design System CSS -->
@@ -32,6 +33,11 @@ $flash = get_flash();
     <?php endif; ?>
 </head>
 <body>
+
+<!-- Educational Disclaimer Banner to Prevent Phishing / Impersonation False Positives -->
+<div style="background: #fff3cd; color: #664d03; border-bottom: 1px solid #ffe69c; font-size: 12.5px; font-weight: 600; text-align: center; padding: 7px 16px; line-height: 1.4;">
+    ⚠️ <strong>PORTFOLIO DEMONSTRATION ONLY:</strong> This website is an independent educational developer project and is <u>not affiliated with WhatJobs.com</u>. Please do not submit real passwords or sensitive personal data.
+</div>
 
 <!-- Header Global -->
 <header class="site-header">

@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$pageTitle = "Sign In to Your Account | WhatJobs";
+$pageTitle = "Demo Account Sign In | WhatJobs Portfolio Showcase";
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -65,7 +65,8 @@ require_once __DIR__ . '/includes/header.php';
     <div style="background: #eef2ff; border: 1px solid #c7d2fe; border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 24px; font-size: 0.88rem; color: #3730a3;">
         <strong><span class="material-symbols-rounded" style="font-size: 18px; vertical-align: middle;">key</span> Quick Demo Login:</strong><br>
         Email: <code>seeker@example.com</code><br>
-        Password: <code>password123</code>
+        Password: <code>password123</code><br>
+        <small style="color: #6366f1; margin-top: 4px; display: block;">(Do not enter real credentials. This is a portfolio demonstration environment.)</small>
     </div>
 
     <!-- Error Banner -->
@@ -82,10 +83,10 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Login Box -->
     <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 36px; box-shadow: var(--shadow-sm);">
         <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 6px; text-align: center;">
-            Sign In to WhatJobs
+            Demo Seeker Sign In
         </h1>
         <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-bottom: 28px;">
-            Manage your applications, saved jobs, and career profile
+            Portfolio demonstration login for testing applicant dashboard features
         </p>
 
         <form action="<?= url('login.php') ?>" method="POST">
