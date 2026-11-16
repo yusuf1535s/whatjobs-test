@@ -60,12 +60,7 @@ $flash = get_flash();
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <link rel="stylesheet" href="<?= url('assets/css/style.css') ?>">
 </head>
-<body style="background: #141414; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
-
-<!-- Disclaimer -->
-<div style="max-width: 440px; width: 100%; margin-bottom: 20px; background: #fff3cd; color: #664d03; border: 1px solid #ffe69c; font-size: 12px; font-weight: 600; text-align: center; padding: 8px 12px; border-radius: 6px;">
-    ⚠️ PORTFOLIO DEMO ONLY: Not affiliated with WhatJobs.com. Do not enter real credentials.
-</div>
+<body style="background: #141414; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;">
 
 <div style="width: 100%; max-width: 440px;">
     
