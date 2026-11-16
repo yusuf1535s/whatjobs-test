@@ -34,7 +34,7 @@ if (is_dir($rootDir . '/' . $script)) {
 $targetFile = $rootDir . '/' . $script;
 
 // 1. If target is a valid PHP file in the project, execute it
-if (file_exists($targetFile) && str_ends_with($targetFile, '.php')) {
+if (file_exists($targetFile) && (substr($targetFile, -4) === '.php')) {
     $_SERVER['SCRIPT_NAME'] = '/' . ltrim($script, '/');
     $_SERVER['PHP_SELF'] = '/' . ltrim($script, '/');
     chdir(dirname($targetFile));

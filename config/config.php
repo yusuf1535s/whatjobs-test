@@ -3,6 +3,23 @@
  * WhatJobs Clone - Core Configuration
  */
 
+// PHP 7.4 Compatibility Polyfills
+if (!function_exists('str_starts_with')) {
+    function str_starts_with(string $haystack, string $needle): bool {
+        return $needle === '' || strpos($haystack, $needle) === 0;
+    }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with(string $haystack, string $needle): bool {
+        return $needle === '' || substr($haystack, -strlen($needle)) === $needle;
+    }
+}
+if (!function_exists('str_contains')) {
+    function str_contains(string $haystack, string $needle): bool {
+        return $needle === '' || strpos($haystack, $needle) !== false;
+    }
+}
+
 // Error reporting (set to 0 in strict production)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

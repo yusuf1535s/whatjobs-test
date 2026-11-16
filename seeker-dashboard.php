@@ -212,20 +212,20 @@ require_once __DIR__ . '/includes/header.php';
                                     <td style="padding: 16px 20px;">
                                         <?php 
                                             $st = $app['status'];
-                                            $badgeStyle = match($st) {
-                                                'accepted' => 'background: #e6f4ea; color: #137333;',
+                                            $badgeStyles = [
+                                                'accepted'    => 'background: #e6f4ea; color: #137333;',
                                                 'shortlisted' => 'background: #f3e8ff; color: #7e22ce;',
-                                                'reviewing' => 'background: #e0f2fe; color: #0369a1;',
-                                                'rejected' => 'background: #f1f5f9; color: #64748b;',
-                                                default => 'background: #fef3c7; color: #b45309;'
-                                            };
-                                            $label = match($st) {
-                                                'accepted' => 'Offer Extended',
+                                                'reviewing'   => 'background: #e0f2fe; color: #0369a1;',
+                                                'rejected'    => 'background: #f1f5f9; color: #64748b;',
+                                            ];
+                                            $labels = [
+                                                'accepted'    => 'Offer Extended',
                                                 'shortlisted' => 'Shortlisted',
-                                                'reviewing' => 'Under Review',
-                                                'rejected' => 'Not Selected',
-                                                default => 'Submitted'
-                                            };
+                                                'reviewing'   => 'Under Review',
+                                                'rejected'    => 'Not Selected',
+                                            ];
+                                            $badgeStyle = $badgeStyles[$st] ?? 'background: #fef3c7; color: #b45309;';
+                                            $label = $labels[$st] ?? 'Submitted';
                                         ?>
                                         <span style="display: inline-block; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 700; <?= $badgeStyle ?>">
                                             <?= $label ?>

@@ -87,11 +87,12 @@ function format_salary(?float $min, ?float $max, string $type = 'year'): string 
         return 'Competitive Salary';
     }
     
-    $unit = match($type) {
-        'hour' => 'per hour',
+    $units = [
+        'hour'  => 'per hour',
         'month' => 'per month',
-        default => 'per year'
-    };
+        'year'  => 'per year'
+    ];
+    $unit = $units[$type] ?? 'per year';
 
     if ($min && $max) {
         if ($type === 'hour') {

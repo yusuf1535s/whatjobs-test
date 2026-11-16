@@ -13,3 +13,4 @@ RewriteRule ^ - [L]
 # Clean URL fallback (e.g. /jobs -> /jobs.php)
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L]
+

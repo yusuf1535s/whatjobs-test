@@ -10,3 +10,4 @@ sed -i "s/<VirtualHost \*:[0-9]*>/<VirtualHost \*:${APP_PORT}>/" /etc/apache2/si
 
 # Execute Apache in foreground
 exec apache2-foreground
+
